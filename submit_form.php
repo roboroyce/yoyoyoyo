@@ -1,18 +1,23 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Process the form submission
+    // Retrieve form data
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
 
-    // Example: Save to a file or send an email
-    // Replace this with your actual processing logic
+    // Set up email parameters
+    $to = "royce.vansumeren@icloud.com"; // Replace with your email address
+    $subject = "game form";
+    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
 
-    // Example response (for testing purposes)
-    echo "Form submitted successfully!";
+    // Send email
+    if (mail($to, $subject, $body)) {
+        echo "Email sent successfully!";
+    } else {
+        echo "Failed to send email. Please try again later.";
+    }
 } else {
-    // Handle other HTTP methods if necessary
-    http_response_code(405);
+    http_response_code(405); // Method Not Allowed
     echo "Method Not Allowed";
 }
 ?>
