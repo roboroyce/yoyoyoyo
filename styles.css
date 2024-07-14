@@ -2,11 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: #007bff;
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -15,6 +16,7 @@ header {
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -25,15 +27,61 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 main {
     padding: 20px;
+}
+
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 60px 20px;
     text-align: center;
 }
 
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1em;
+}
+
 footer {
-    background-color: #333;
+    background-color: #007bff;
     color: #fff;
     text-align: center;
     padding: 10px 0;
@@ -42,27 +90,36 @@ footer {
     width: 100%;
 }
 
-.board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 10px;
-    margin: 20px auto;
+.error, .games, .contact {
+    text-align: center;
 }
 
-.cell {
-    width: 100px;
-    height: 100px;
+form {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: 2em;
-    border: 1px solid #333;
+    gap: 10px;
+}
+
+form label {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+form input, form textarea, form button {
+    width: 300px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+form button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-#resetButton {
-    margin: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
+form button:hover {
+    background-color: #218838;
 }
