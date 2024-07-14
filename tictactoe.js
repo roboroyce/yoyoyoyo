@@ -14,10 +14,10 @@ const winningCombinations = [
 
 function handleClick(event) {
     const index = event.target.dataset.index;
-    if (board[index] === '' && !checkWin('X') && !checkWin('O')) {
+    if (board[index] === '' && !checkWin()) {
         board[index] = currentPlayer;
         event.target.textContent = currentPlayer;
-        if (checkWin(currentPlayer)) {
+        if (checkWin()) {
             setTimeout(() => alert(`${currentPlayer} wins!`), 10);
         } else if (board.every(cell => cell !== '')) {
             setTimeout(() => alert('It\'s a tie!'), 10);
@@ -27,9 +27,9 @@ function handleClick(event) {
     }
 }
 
-function checkWin(player) {
+function checkWin() {
     return winningCombinations.some(combination => {
-        return combination.every(index => board[index] === player);
+        return combination.every(index => board[index] === currentPlayer);
     });
 }
 
