@@ -42,10 +42,6 @@ footer {
     width: 100%;
 }
 
-.game {
-    margin: 20px 0;
-}
-
 .board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
@@ -69,10 +65,4 @@ footer {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
-}
-
-canvas {
-    display: block;
-    margin: 20px auto;
-    background-color: #000;
 }
