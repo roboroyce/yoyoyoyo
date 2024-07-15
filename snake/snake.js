@@ -2,6 +2,7 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 const gridSize = 20;
+const tileCount = canvas.width / gridSize;
 let snake = [{ x: 10, y: 10 }];
 let food = { x: 15, y: 15 };
 let dx = 1;
@@ -33,30 +34,37 @@ function moveSnake() {
 }
 
 function spawnFood() {
-    food.x = Math.floor(Math.random() * (canvas.width / gridSize));
-    food.y = Math.floor(Math.random() * (canvas.height / gridSize));
+    food.x = Math.floor(Math.random() * tileCount);
+    food.y = Math.floor(Math.random() * tileCount);
+
+    // Ensure the food doesn't spawn on the snake
+    snake.forEach(segment => {
+        if (segment.x === food.x && segment.y === food.y) {
+            spawnFood();
+        }
+    });
 }
 
 function handleInput(event) {
     const key = event.key;
     switch (key) {
         case 'ArrowUp':
-            if (dy !== 1) {
+            if (dy === 0) {
                 dx = 0; dy = -1;
             }
             break;
         case 'ArrowDown':
-            if (dy !== -1) {
+            if (dy === 0) {
                 dx = 0; dy = 1;
             }
             break;
         case 'ArrowLeft':
-            if (dx !== 1) {
+            if (dx === 0) {
                 dx = -1; dy = 0;
             }
             break;
         case 'ArrowRight':
-            if (dx !== -1) {
+            if (dx === 0) {
                 dx = 1; dy = 0;
             }
             break;
@@ -73,22 +81,28 @@ function main() {
         moveSnake();
 
         // Collision detection (simplified)
-        if (snake[0].x < 0 || snake[0].x >= canvas.width / gridSize ||
-            snake[0].y < 0 || snake[0].y >= canvas.height / gridSize) {
+        if (snake[0].x < 0 || snake[0].x >= tileCount ||
+            snake[0].y < 0 || snake[0].y >= tileCount) {
             alert('Game Over! Score: ' + score);
-            snake = [{ x: 10, y: 10 }];
-            score = 0;
+            resetGame();
         }
 
         // Check for self-collision (omit head)
         for (let i = 1; i < snake.length; i++) {
             if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
                 alert('Game Over! Score: ' + score);
-                snake = [{ x: 10, y: 10 }];
-                score = 0;
+                resetGame();
             }
         }
     }, 100);
+}
+
+function resetGame() {
+    snake = [{ x: 10, y: 10 }];
+    dx = 1;
+    dy = 0;
+    score = 0;
+    spawnFood();
 }
 
 main();
