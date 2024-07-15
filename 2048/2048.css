@@ -35,25 +35,22 @@ body {
 }
 
 .grid {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    background: #bbada0;
-    border-radius: 6px;
-}
-
-.grid-row {
-    display: flex;
+    width: 360px;
+    height: 360px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
 }
 
 .grid-cell {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     background: #cdc1b4;
-    margin: 5px;
     border-radius: 6px;
-    text-align: center;
-    line-height: 90px;
-    font-size: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
     color: #776e65;
 }
