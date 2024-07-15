@@ -36,7 +36,7 @@ main {
 
 .hero {
     background: url('hero-image.jpg') no-repeat center center/cover;
-    color: #fff;
+    color: #02151c;
     padding: 60px 20px;
     text-align: center;
 }
