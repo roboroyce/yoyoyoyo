@@ -44,11 +44,13 @@ main {
 .hero h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    color: #02151c;
 }
 
 .hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
+    color: #02151c;
 }
 
 .cta-button {
@@ -64,20 +66,24 @@ main {
     display: flex;
     justify-content: space-around;
     margin-top: 40px;
+    color: #02151c;
 }
 
 .feature {
     text-align: center;
     padding: 20px;
+    color: #02151c;
 }
 
 .feature h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: #02151c;
 }
 
 .feature p {
     font-size: 1em;
+    color: #02151c;
 }
 
 footer {
