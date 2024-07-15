@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create a playing board
     function createBoard() {
         for (let i = 0; i < width * width; i++) {
-            square = document.createElement('div');
+            let square = document.createElement('div');
             square.innerHTML = 0;
             gridDisplay.appendChild(square);
             squares.push(square);
