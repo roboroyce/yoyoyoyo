@@ -1,30 +1,72 @@
+/* Global styles */
+
 body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
     background-color: #faf8ef;
 }
 
-#game {
+h1, h2, h3 {
+    color: #776e65;
+}
+
+/* Header and navigation */
+
+header {
+    background-color: #f1f1f1;
+    padding: 10px 0;
     text-align: center;
 }
 
-.header {
-    margin-bottom: 10px;
-}
-
-.title {
-    font-size: 80px;
+header h1 {
     margin: 0;
-    color: #776e65;
+    font-size: 2rem;
+    color: #333;
 }
 
-.score-container {
-    font-size: 18px;
-    color: #776e65;
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #555;
+}
+
+/* Main content */
+
+.main-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* 2048 game specific styles */
+
+#game {
+    text-align: center;
+    margin-top: 20px;
 }
 
 #grid-container {
@@ -35,8 +77,8 @@ body {
 }
 
 .grid {
-    width: 360px;
-    height: 360px;
+    width: 400px;
+    height: 400px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -44,13 +86,86 @@ body {
 }
 
 .grid-cell {
-    width: 80px;
-    height: 80px;
-    background: #cdc1b4;
+    width: 90px;
+    height: 90px;
+    background-color: #cdc1b4;
     border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 36px;
+    color: #776e65;
+    transition: transform 0.1s ease-in-out;
+}
+
+.moving {
+    animation: moveTile 0.1s ease-in-out;
+}
+
+@keyframes moveTile {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.grid-cell.num2 {
+    background-color: #eee4da;
     color: #776e65;
 }
+
+.grid-cell.num4 {
+    background-color: #ede0c8;
+    color: #776e65;
+}
+
+.grid-cell.num8 {
+    background-color: #f2b179;
+    color: white;
+}
+
+.grid-cell.num16 {
+    background-color: #f59563;
+    color: white;
+}
+
+.grid-cell.num32 {
+    background-color: #f67c5f;
+    color: white;
+}
+
+.grid-cell.num64 {
+    background-color: #f65e3b;
+    color: white;
+}
+
+.grid-cell.num128 {
+    background-color: #edcf72;
+    color: white;
+}
+
+.grid-cell.num256 {
+    background-color: #edcc61;
+    color: white;
+}
+
+.grid-cell.num512 {
+    background-color: #edc850;
+    color: white;
+}
+
+.grid-cell.num1024 {
+    background-color: #edc53f;
+    color: white;
+}
+
+.grid-cell.num2048 {
+    background-color: #edc22e;
+    color: white;
+}
+
